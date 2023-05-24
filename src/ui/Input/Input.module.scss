@@ -1,0 +1,122 @@
+.field {
+    flex: 1;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    color: var(--text);
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    transition: color 0.3s linear;
+}
+
+.input {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-width: fit-content;
+    padding: 6px 12px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    transition: filter 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, box-shadow 0.3s;
+
+    &:hover {
+        // border-color: var(--transparent-secondary);
+        border-color: var(--transparent);
+    }
+
+    &:focus-within {
+        border-color: var(--transparent);
+        box-shadow: 0 0 2px var(--text);
+    }
+
+    // display: inline-flex;
+}
+
+.outline {
+    background-color: transparent;
+    border: 1px solid var(--transparent);
+}
+
+.transparent {
+    background-color: var(--transparent-rv);
+    backdrop-filter: blur(4px);
+
+    // box-shadow: var(--shadow);
+}
+
+.soft-transparent {
+    background-color: var(--transparent-soft-rv);
+    backdrop-filter: blur(10px);
+}
+
+.error {
+    border-color: var(--system-danger);
+
+    &:hover {
+        border-color: var(--system-danger);
+    }
+
+    &:focus-within {
+        border-color: var(--system-danger);
+        box-shadow: 0 0 2px var(--system-danger);
+    }
+}
+
+.warning {
+    border-color: var(--system-warning);
+
+    &:hover {
+        border-color: var(--system-warning);
+    }
+
+    &:focus-within {
+        border-color: var(--system-warning);
+        box-shadow: 0 0 2px var(--system-warning);
+    }
+}
+
+.success {
+    border-color: var(--system-success);
+
+    &:hover {
+        border-color: var(--system-success);
+    }
+
+    &:focus-within {
+        border-color: var(--system-success);
+        box-shadow: 0 0 2px var(--system-success);
+    }
+}
+
+.prefix {
+    margin-right: 8px;
+}
+
+.suffix {
+    margin-left: 8px;
+}
+
+.prefix,
+.suffix {
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    color: var(--transparent);
+
+    transition: color 0.3s ease;
+}

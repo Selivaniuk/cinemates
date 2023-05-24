@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "user_status": "Online",
+    "avatar": "https://example.com/avatar.jpg",
+    "level": 5,
+    "xp": 2500,
+    "email": "john.doe@example.com",
+    "name": "John Doe",
+    "county": "United States",
+    "status": "Active",
+    "friends": [2],
+    "rated": [
+      {
+        "movie": 1,
+        "rate": 4
+      },
+      {
+        "movie": 3,
+        "rate": 5
+      }
+    ],
+    "favorite": [2, 4, 6],
+    "viewed": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": 2,
+    "username": "jane_smith",
+    "user_status": "Offline",
+    "avatar": "https://example.com/avatar2.jpg",
+    "level": 3,
+    "xp": 1500,
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "county": "United States",
+    "status": "Active",
+    "friends": [1],
+    "rated": [
+      {
+        "movie": 2,
+        "rate": 3
+      },
+      {
+        "movie": 4,
+        "rate": 5
+      }
+    ],
+    "favorite": [3, 5],
+    "viewed": [2, 3, 4]
+  },
+  {
+    "id": 3,
+    "username": "mark_johnson",
+    "user_status": "Watching",
+    "avatar": "https://example.com/avatar3.jpg",
+    "level": 4,
+    "xp": 2000,
+    "email": "mark.johnson@example.com",
+    "name": "Mark Johnson",
+    "county": "United States",
+    "status": "Active",
+    "friends": [],
+    "rated": [
+      {
+        "movie": 3,
+        "rate": 4
+      },
+      {
+        "movie": 5,
+        "rate": 3
+      }
+    ],
+    "favorite": [1, 4, 6],
+    "viewed": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": 4,
+    "username": "sarah_wilson",
+    "user_status": "Online",
+    "avatar": "https://example.com/avatar4.jpg",
+    "level": 6,
+    "xp": 3000,
+    "email": "sarah.wilson@example.com",
+    "name": "Sarah Wilson",
+    "county": "United States",
+    "status": "Active",
+    "friends": [],
+    "rated": [
+      {
+        "movie": 4,
+        "rate": 5
+      },
+      {
+        "movie": 6,
+        "rate": 4
+      }
+    ],
+    "favorite": [2, 3],
+    "viewed": [1, 3, 5]
+  }
+]

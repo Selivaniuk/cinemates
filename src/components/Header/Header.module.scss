@@ -1,0 +1,21 @@
+.headerBody {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 24px;
+}
+
+.left {
+    display: flex;
+    gap: 24px;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.right {
+    display: flex;
+    gap: 24px;
+    margin-left: auto;
+}

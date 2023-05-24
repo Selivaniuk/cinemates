@@ -1,0 +1,236 @@
+.button {
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: fit-content;
+    height: max-content;
+    padding: 14px 24px;
+
+    font-size: 16px;
+    white-space: nowrap;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: var(--shadow-dark);
+
+    transition: color 0.3s linear, background-color 0.3s linear;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+
+        width: 0;
+        height: 100%;
+
+        background-color: var(--btn-hover-color-light);
+
+        transition: width 0.3s ease, background-color 0.3s linear;
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+    }
+
+    &:active {
+        &::before {
+            background-color: var(--btn-hover-color-dark);
+        }
+    }
+
+    &.rounded {
+        padding: 14px;
+    }
+
+    &:disabled,
+    &.loading {
+        cursor: not-allowed;
+        opacity: 0.8;
+    }
+}
+
+.primary {
+    color: var(--text-light);
+    background-color: var(--primary);
+
+    &.transparent {
+        background-color: var(--transparent-primary);
+    }
+}
+
+.dark {
+    color: var(--text-light);
+    background-color: var(--tertiary);
+
+    &.transparent {
+        background-color: var(--transparent-dark);
+    }
+
+    &.soft-transparent {
+        background-color: var(--transparent-soft-dark);
+    }
+}
+
+.light {
+    color: var(--text-dark);
+    background-color: var(--text-light);
+
+    &::before {
+        background-color: var(--btn-hover-color-dark);
+    }
+
+    &.transparent {
+        background-color: var(--transparent-light);
+    }
+
+    &.soft-transparent {
+        background-color: var(--transparent-soft-light);
+    }
+
+    &:active {
+        &::before {
+            background-color: var(--btn-hover-color-light);
+        }
+    }
+}
+
+.flex {
+    color: var(--text-rv);
+    background-color: var(--btn-bg-rv);
+
+    &::before {
+        background-color: var(--btn-active-color);
+    }
+
+    &.transparent {
+        background-color: var(--transparent);
+    }
+
+    &.soft-transparent {
+        background-color: var(--transparent-soft);
+
+        &::before {
+            background-color: var(--btn-active-color-soft);
+        }
+
+        &:active {
+            &::before {
+                background-color: var(--btn-hover-color-soft);
+            }
+        }
+    }
+
+    &:active {
+        &::before {
+            background-color: var(--btn-hover-color);
+        }
+    }
+}
+
+.flex-rv {
+    color: var(--text);
+    background-color: var(--btn-bg);
+
+    &::before {
+        background-color: var(--btn-hover-color);
+    }
+
+    &.transparent {
+        background-color: var(--transparent-rv);
+    }
+
+    &.soft-transparent {
+        background-color: var(--transparent-soft-rv);
+
+        &::before {
+            background-color: var(--btn-hover-color-soft);
+        }
+
+        &:active {
+            &::before {
+                background-color: var(--btn-active-color-soft);
+            }
+        }
+    }
+
+    &:active {
+        &::before {
+            background-color: var(--btn-active-color);
+        }
+    }
+}
+
+.gradient {
+    color: var(--text-light);
+    background: var(--gradient);
+}
+
+.transparent {
+    backdrop-filter: blur(2px);
+}
+
+.soft-transparent {
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-hard-dark);
+}
+
+.small {
+    padding: 8px 14px;
+    font-size: 14px;
+
+    &.rounded {
+        padding: 8px;
+    }
+}
+
+.large {
+    padding: 18px 32px;
+    font-size: 18px;
+
+    &.rounded {
+        padding: 18px;
+    }
+}
+
+.rounded {
+    border-radius: 30%;
+}
+
+.icon-left,
+.icon-right {
+    gap: 8px;
+}
+
+.icon {
+    display: inline-flex;
+}
+
+.loading {
+    &::before {
+        width: 100%;
+        background-color: var(--btn-hover-color-light);
+        animation: loadingAnimation 1s infinite linear;
+    }
+}
+
+@keyframes loadingAnimation {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}

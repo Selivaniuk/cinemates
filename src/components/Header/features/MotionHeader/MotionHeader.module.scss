@@ -1,0 +1,14 @@
+.header {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+
+    height: 60px;
+
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--separator);
+
+    transition: background-color 0.3s linear, border-color 0.3s linear;
+
+    // transition: border-color 0.3s linear;
+}

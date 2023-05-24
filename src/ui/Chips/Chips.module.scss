@@ -1,0 +1,96 @@
+.chips {
+    // cursor: pointer;
+
+    // position: relative;
+
+    // overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: fit-content;
+    height: max-content;
+    padding: 4px 8px;
+
+    font-size: 14px;
+    white-space: nowrap;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+
+    // transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    // &::before {
+    //     content: "";
+
+    //     position: absolute;
+    //     z-index: 1;
+    //     top: 0;
+    //     left: 0;
+
+    //     width: 0;
+    //     height: 100%;
+
+    //     background-color: rgb(255 255 255 / 20%);
+
+    //     transition: width 0.3s;
+    // }
+
+    // &:hover {
+    //     &::before {
+    //         width: 100%;
+    //     }
+    // }
+
+    // &:active {
+    //     &::before {
+    //         background-color: rgb(0 0 0 / 20%);
+    //     }
+    // }
+}
+
+.primary {
+    color: var(--text-light);
+    background-color: var(--primary);
+
+    &.opacity {
+        background-color: var(--transparent-primary);
+    }
+}
+
+.dark {
+    color: var(--text-light);
+    background-color: var(--text-dark);
+
+    &.opacity {
+        background-color: var(--transparent-dark);
+    }
+}
+
+.light {
+    color: var(--text-dark);
+    background-color: var(--text-light);
+
+    &.opacity {
+        background-color: var(--transparent-light);
+    }
+}
+
+.secondary {
+    color: var(--text-light);
+    background-color: var(--secondary);
+
+    &.opacity {
+        background-color: var(--transparent-secondary);
+    }
+}
+
+.opacity {
+    backdrop-filter: blur(2px);
+}
+
+.flex {
+    color: var(--text-rv);
+    background-color: var(--btn-bg-rv);
+}

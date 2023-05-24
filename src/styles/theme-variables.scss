@@ -1,0 +1,125 @@
+:root {
+    --primary: #ff4454;
+    --secondary: #eab041;
+    --tertiary: #322b2c;
+    --gradient: linear-gradient(to right, var(--secondary), var(--primary));
+
+    // background
+    // --background-light: #f5f4f0;
+    --background-light: #eee3d9;
+    --background-dark: #161414;
+    --background-soft-dark: #16141480;
+    --background-accent: #322b2c;
+
+    // text
+    --text-dark: #141a20;
+    --text-light: #fff;
+    --text-placeholder: #858181;
+
+    // system
+    --system-success: #28a745;
+    --system-warning: #ffc107;
+    --system-danger: #ff4d4f;
+
+    // transparent
+    --transparent-primary: rgb(255 68 84 / 70%);
+    --transparent-secondary: rgb(234 176 65 / 50%);
+    --transparent-dark: rgb(0 0 0 / 70%);
+    --transparent-light: rgb(255 255 255 / 70%);
+
+    // transparent soft
+    --transparent-soft-dark: rgb(0 0 0 / 10%);
+    --transparent-soft-light: rgb(255 255 255 / 10%);
+
+    // shadow
+    --shadow-light: 0px 4px 12px rgb(255 255 255 / 10%);
+    --shadow-dark: 0px 4px 12px rgb(0 0 0 / 10%);
+    --shadow-hard-dark: 0px 4px 4px rgb(0 0 0 / 20%);
+    --shadow-hard-light: 0px 4px 4px rgb(255 255 255 / 20%);
+
+    // separator
+    --separator-light: #d3d3cf;
+    --separator-dark: #393737;
+
+    // button
+    --btn-hover-color-light: rgb(255 255 255 / 20%);
+    --btn-hover-color-dark: rgb(0 0 0 / 20%);
+    --btn-hover-color-light-soft: rgb(255 255 255 / 10%);
+    --btn-hover-color-dark-soft: rgb(0 0 0 / 10%);
+}
+
+[data-theme="light"] {
+    // background
+    --bg: var(--background-light);
+
+    // text
+    --text: var(--text-dark);
+    --text-rv: var(--text-light);
+    --text-soft: var(--text-soft-dark);
+
+    // shadow
+    --shadow: var(--shadow-dark);
+    --shadow-rv: var(--shadow-light);
+    --shadow-hard: var(--shadow-hard-dark);
+    --shadow-hard-rv: var(--shadow-hard-light);
+
+    // transparent
+    --transparent: var(--transparent-dark);
+    --transparent-rv: var(--transparent-light);
+
+    // transparent soft
+    --transparent-soft: var(--transparent-soft-dark);
+    --transparent-soft-rv: var(--transparent-soft-light);
+
+    // button
+    --btn-bg: var(--text-light);
+    --btn-bg-rv: var(--tertiary);
+    --btn-hover-color: var(--btn-hover-color-dark);
+    --btn-active-color: var(--btn-hover-color-light);
+    --btn-hover-color-soft: var(--btn-hover-color-dark-soft);
+    --btn-active-color-soft: var(--btn-hover-color-light-soft);
+
+    // separator
+    --separator: var(--separator-light);
+
+    // logo
+    --logo-color: var(--tertiary);
+}
+
+[data-theme="dark"] {
+    // background
+    --bg: var(--background-dark);
+
+    // text
+    --text: var(--text-light);
+    --text-rv: var(--text-dark);
+    --text-soft: var(--text-soft-light);
+
+    // shadow
+    --shadow: var(--shadow-light);
+    --shadow-rv: var(--shadow-dark);
+    --shadow-hard: var(--shadow-hard-light);
+    --shadow-hard-rv: var(--shadow-hard-dark);
+
+    // transparent
+    --transparent: var(--transparent-light);
+    --transparent-rv: var(--transparent-dark);
+
+    // transparent soft
+    --transparent-soft: var(--transparent-soft-light);
+    --transparent-soft-rv: var(--transparent-soft-dark);
+
+    // button
+    --btn-bg: var(--tertiary);
+    --btn-bg-rv: var(--text-light);
+    --btn-hover-color: var(--btn-hover-color-light);
+    --btn-active-color: var(--btn-hover-color-dark);
+    --btn-hover-color-soft: var(--btn-hover-color-light-soft);
+    --btn-active-color-soft: var(--btn-hover-color-dark-soft);
+
+    // separator
+    --separator: var(--separator-dark);
+
+    // logo
+    --logo-color: var(--text-light);
+}

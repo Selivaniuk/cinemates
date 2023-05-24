@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "The Shawshank Redemption",
+    "image": "https://example.com/shawshank_redemption.jpg",
+    "type": "movies",
+    "genres": [1, 4],
+    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "rate": 9.3,
+    "posters": ["https://example.com/shawshank_poster1.jpg", "https://example.com/shawshank_poster2.jpg"],
+    "year": "1994"
+  },
+  {
+    "id": 2,
+    "name": "Inception",
+    "image": "https://example.com/inception.jpg",
+    "type": "movies",
+    "genres": [1, 6],
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "rate": 8.8,
+    "posters": ["https://example.com/inception_poster1.jpg", "https://example.com/inception_poster2.jpg"],
+    "year": "2010"
+  },
+  {
+    "id": 3,
+    "name": "Stranger Things",
+    "image": "https://example.com/stranger_things.jpg",
+    "type": "serials",
+    "genres": [2, 5],
+    "description": "When a young boy disappears, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+    "rate": 8.7,
+    "posters": ["https://example.com/stranger_things_poster1.jpg", "https://example.com/stranger_things_poster2.jpg"],
+    "year": "2016"
+  },
+  {
+    "id": 4,
+    "name": "Spirited Away",
+    "image": "https://example.com/spirited_away.jpg",
+    "type": "anime",
+    "genres": [3, 7],
+    "description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
+    "rate": 8.6,
+    "posters": ["https://example.com/spirited_away_poster1.jpg", "https://example.com/spirited_away_poster2.jpg"],
+    "year": "2001"
+  },
+  {
+    "id": 5,
+    "name": "Game of Thrones",
+    "image": "https://example.com/game_of_thrones.jpg",
+    "type": "serials",
+    "genres": [2, 4],
+    "description": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
+    "rate": 9.3,
+    "posters": ["https://example.com/game_of_thrones_poster1.jpg", "https://example.com/game_of_thrones_poster2.jpg"],
+    "year": "2011"
+  }
+]

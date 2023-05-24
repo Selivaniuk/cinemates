@@ -1,0 +1,29 @@
+.wrapper {
+    position: relative;
+}
+
+.pi {
+    position: absolute;
+    transform: rotate(90deg);
+}
+
+.track {
+    fill: transparent;
+    stroke: var(--text-placeholder);
+}
+
+.indicator {
+    fill: transparent;
+    stroke: var(--secondary);
+}
+
+.child {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}

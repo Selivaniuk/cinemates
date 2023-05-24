@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "username": "john_doe",
+  "user_status": "Online",
+  "theme": "dark",
+  "language": "en",
+  "avatar": "https://www.gravatar.com/avatar/?d=mp",
+  "level": 5,
+  "xp": 1337,
+  "email": "john.doe@example.com",
+  "name": "John Doe",
+  "county": "United States",
+  "status": "Active",
+  "friends": [2, 3, 4],
+  "rated": [
+    {
+      "movie": 1,
+      "rate": 4
+    },
+    {
+      "movie": 3,
+      "rate": 5
+    }
+  ],
+  "favorite": [2, 4, 6],
+  "viewed": [1, 2, 3, 4, 5]
+}

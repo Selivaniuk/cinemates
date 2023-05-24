@@ -1,0 +1,39 @@
+@import "styles/text-styles";
+
+.filters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: auto;
+}
+
+.filter {
+    @include label;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    color: var(--transparent);
+
+    transition: color 0.3s linear;
+}
+
+.label {
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.3s;
+
+    &:hover {
+        color: var(--text);
+    }
+}
+
+.activeFilter {
+    .label {
+        color: var(--primary);
+
+        &:hover {
+            color: var(--primary);
+        }
+    }
+}

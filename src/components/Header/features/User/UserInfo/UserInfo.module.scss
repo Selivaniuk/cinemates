@@ -1,0 +1,30 @@
+@import "styles/text-styles";
+
+.user {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.name {
+    @include h6;
+    cursor: pointer;
+    color: var(--transparent);
+    white-space: nowrap;
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: var(--text);
+    }
+}
+
+.level {
+    @include p3;
+    color: var(--text-placeholder);
+    white-space: nowrap;
+}
+
+.avatar {
+    border-radius: 50%;
+}

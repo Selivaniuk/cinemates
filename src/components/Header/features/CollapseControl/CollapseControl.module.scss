@@ -1,0 +1,24 @@
+.collapseControl {
+    user-select: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.closeIcon,
+.openIcon {
+    cursor: default;
+    font-size: 40px !important;
+    color: var(--text-placeholder);
+    transition: color 0.3s;
+}
+
+.canClick {
+    cursor: pointer;
+    color: var(--transparent);
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: var(--text);
+    }
+}

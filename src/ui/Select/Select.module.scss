@@ -1,0 +1,135 @@
+.select {
+    position: relative;
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: background-color 0.3s linear, border-color 0.3s linear;
+
+    &:hover {
+        border-color: var(--transparent);
+    }
+}
+
+.selectedOption {
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px 12px;
+
+    color: var(--text);
+    white-space: nowrap;
+
+    border-radius: 8px;
+
+    transition: color 0.3s linear, filter 0.3s linear;
+}
+
+.outline {
+    background-color: transparent;
+    border: 1px solid var(--transparent);
+    border-radius: 8px;
+}
+
+.transparent {
+    background-color: var(--transparent-rv);
+    border-radius: 8px;
+
+    // box-shadow: var(--shadow);
+}
+
+.soft-transparent {
+    background-color: var(--transparent-soft-rv);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: var(--shadow-hard-dark);
+}
+
+.placeholder {
+    color: var(--transparent);
+    transition: color 0.3s linear;
+}
+
+.icon {
+    display: inline-flex;
+    color: var(--text-placeholder);
+}
+
+.arrowIcon {
+    color: var(--transparent);
+    transition: transform 0.2s linear, color 0.3s linear;
+}
+
+.open {
+    border-color: var(--transparent);
+    box-shadow: 0 0 2px var(--text);
+
+    .arrowIcon {
+        transform: rotate(180deg);
+    }
+}
+
+.optionsWrapper {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    margin-top: 8px;
+
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.options {
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    min-width: 100%;
+    padding: 8px 0;
+
+    background-color: var(--bg);
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-horizontal {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-vertical {
+        display: none;
+    }
+}
+
+.option {
+    cursor: pointer;
+
+    width: 100%;
+    padding: 8px 12px;
+
+    color: var(--text);
+
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--transparent-soft);
+    }
+
+    &.selected {
+        font-weight: bold;
+        background-color: var(--transparent-soft);
+    }
+}

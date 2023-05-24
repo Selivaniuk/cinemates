@@ -1,0 +1,42 @@
+@import "styles/theme-variables";
+@import "styles/text-styles";
+
+body {
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.3s linear, color 0.3s linear;
+
+  // transition: color 0.3s;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+.main {
+  padding: 84px 0 0 335px;
+}

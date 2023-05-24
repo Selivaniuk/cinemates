@@ -1,0 +1,96 @@
+@import "styles/text-styles";
+
+.sidebar {
+    position: fixed;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    height: 100%;
+    padding-top: 12px;
+
+    background-color: var(--bg);
+    border-right: 1px solid var(--separator);
+
+    transition: background-color 0.3s linear, border-color 0.3s linear;
+}
+
+.logo {
+    pointer-events: none;
+    padding: 0 12px;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.label {
+    @include label;
+    margin-left: 24px;
+    color: var(--text-placeholder);
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    @include h5;
+    position: relative;
+    padding: 0 24px;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+
+        width: 0;
+        height: 100%;
+
+        border-radius: 0 4px 4px 0;
+
+        transition: color 0.3s linear, width 0.2s linear, background-color 0.3s linear;
+    }
+
+    &:hover {
+        &::before {
+            width: 4px;
+            background-color: var(--text);
+        }
+    }
+}
+
+.active {
+    &::before {
+        width: 4px;
+        background-color: var(--primary);
+    }
+
+    &:hover {
+        &::before {
+            width: 4px;
+            background-color: var(--primary);
+        }
+    }
+
+    .icon {
+        color: var(--primary);
+    }
+}
+
+.logo {
+    color: var(--logo-color);
+    transition: color linear 0.3s;
+}

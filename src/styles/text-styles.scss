@@ -1,0 +1,253 @@
+@mixin apply-preset($preset, $values) {
+    @if $preset == "desktop" {
+        font-size: nth($values, 1);
+        font-weight: nth($values, 2);
+        line-height: nth($values, 3);
+        letter-spacing: nth($values, 4);
+        text-transform: nth($values, 5);
+    }
+
+ @else if $preset == "mobile" {
+        @media (width <= 767px) {
+            font-size: nth($values, 1);
+        }
+    }
+}
+
+@mixin apply-presets($presets) {
+    @each $preset, $values in $presets {
+        @include apply-preset($preset, $values);
+    }
+}
+
+@mixin h1 {
+    $presets: (
+        "desktop": (
+            56px,
+            700,
+            150%,
+            0.03em,
+            uppercase,
+        ),
+        "mobile": (
+            48px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin h2 {
+    $presets: (
+        "desktop": (
+            48px,
+            700,
+            150%,
+            0.03em,
+            uppercase,
+        ),
+        "mobile": (
+            38px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin h3 {
+    $presets: (
+        "desktop": (
+            36px,
+            700,
+            150%,
+            null,
+            null,
+        ),
+        "mobile": (
+            28px,
+            700,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin h4 {
+    $presets: (
+        "desktop": (
+            24px,
+            700,
+            150%,
+            null,
+            null,
+        ),
+        "mobile": (
+            18px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin h5 {
+    $presets: (
+        "desktop": (
+            16px,
+            700,
+            155%,
+            null,
+            null,
+        ),
+        "mobile": (
+            14px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin h6 {
+    $presets: (
+        "desktop": (
+            14px,
+            700,
+            155%,
+            null,
+            null,
+        ),
+        "mobile": (
+            12px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin p1 {
+    $presets: (
+        "desktop": (
+            20px,
+            400,
+            155%,
+            null,
+            null,
+        ),
+        "mobile": (
+            16px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin p2 {
+    $presets: (
+        "desktop": (
+            16px,
+            400,
+            155%,
+            null,
+            null,
+        ),
+        "mobile": (
+            14px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin p3 {
+    $presets: (
+        "desktop": (
+            14px,
+            400,
+            155%,
+            null,
+            null,
+        ),
+        "mobile": (
+            12px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin p4 {
+    $presets: (
+        "desktop": (
+            12px,
+            400,
+            155%,
+            null,
+            null,
+        ),
+        "mobile": (
+            10px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}
+
+@mixin label {
+    $presets: (
+        "desktop": (
+            18px,
+            700,
+            150%,
+            0.03em,
+            uppercase,
+        ),
+        "mobile": (
+            16px,
+            null,
+            null,
+            null,
+            null,
+        ),
+    );
+
+    @include apply-presets($presets);
+}

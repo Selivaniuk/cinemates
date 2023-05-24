@@ -1,0 +1,11 @@
+.searchInput {
+    // margin-left: 48px;
+
+    span {
+        cursor: pointer;
+
+        &:hover {
+            color: var(--text);
+        }
+    }
+}
