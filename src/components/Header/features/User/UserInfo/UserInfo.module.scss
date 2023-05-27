@@ -1,22 +1,27 @@
 @import "styles/text-styles";
 
 .user {
+    position: relative;
+}
+
+.userAvatar {
+    cursor: pointer;
+}
+
+.info {
     display: flex;
     gap: 8px;
     align-items: center;
-    padding: 0 24px;
+    justify-content: center;
+
+    padding: 4px;
 }
 
 .name {
     @include h6;
-    cursor: pointer;
-    color: var(--transparent);
+    color: var(--text);
     white-space: nowrap;
     transition: color 0.3s linear;
-
-    &:hover {
-        color: var(--text);
-    }
 }
 
 .level {
@@ -27,4 +32,62 @@
 
 .avatar {
     border-radius: 50%;
+}
+
+.userMenu {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: -8px;
+    transform: translateY(100%);
+
+    overflow: hidden;
+
+    width: 100%;
+    min-width: fit-content;
+    padding: 8px;
+
+    background-color: var(--bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.separator {
+    margin: 8px 4px;
+    border-top: 1px solid var(--separator);
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    cursor: pointer;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    min-width: max-content;
+    padding: 8px;
+
+    background-color: transparent;
+    border-radius: 8px;
+
+    &.label {
+        @include p2;
+
+        color: var(--text);
+        white-space: nowrap;
+    }
+
+    &:hover {
+        background-color: var(--transparent-soft);
+    }
+}
+
+.icon {
+    font-size: 16px !important;
+    color: var(--transparent);
 }

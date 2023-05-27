@@ -6,7 +6,7 @@ import { useContext } from 'react'
 
 import styles from './CollapseControl.module.scss'
 
-import { SidebarContext } from 'components/BodyLayout/SidebarProvider'
+import { SidebarContext } from 'components/MainLayout/SidebarProvider'
 import Icon from 'ui/Icon'
 
 const CollapseControl: React.FC = () => {

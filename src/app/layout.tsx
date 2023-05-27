@@ -1,11 +1,11 @@
 import { Montserrat } from 'next/font/google'
+
 import { ReactNode } from 'react'
 
 import './globals.scss'
-import BodyLayout from 'components/BodyLayout'
-import Provider from 'components/Provider'
+import Providers from 'components/Providers'
 
-const font = Montserrat({ subsets: ['cyrillic', 'latin'] })
+const font = Montserrat({ subsets: ['cyrillic', 'latin'], display: 'fallback' })
 
 export const metadata = {
   title: 'CineMates',
@@ -16,19 +16,16 @@ type LayoutProps = {
   children: ReactNode
 }
 
-const RootLayout = ({ children }: LayoutProps) => (
+const RootLayout = async ({ children }: LayoutProps) => (
   <html data-theme='dark' lang='en'>
     <head>
       <link href='https://fonts.googleapis.com/css?family=Material+Icons+Outlined' rel='stylesheet' />
     </head>
     <body className={font.className}>
       <div id='root'>
-        <Provider>
-          <BodyLayout>{children}</BodyLayout>
-        </Provider>
+        <Providers>{children}</Providers>
       </div>
     </body>
   </html>
 )
-
 export default RootLayout

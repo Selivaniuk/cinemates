@@ -5,7 +5,7 @@ import { useContext } from 'react'
 
 import styles from './MotionHeader.module.scss'
 
-import { SidebarContext } from 'components/BodyLayout/SidebarProvider'
+import { SidebarContext } from 'components/MainLayout/SidebarProvider'
 
 interface MotionHeaderProps {
   children: React.ReactNode

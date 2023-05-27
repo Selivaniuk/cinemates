@@ -8,7 +8,7 @@ import ThemeControl from './features/ThemeControl'
 import User from './features/User'
 import styles from './Header.module.scss'
 
-const Header: React.FC = () => (
+const Header = () => (
   <MotionHeader>
     <div className={styles.headerBody}>
       <div className={styles.left}>

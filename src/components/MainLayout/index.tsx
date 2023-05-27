@@ -5,11 +5,7 @@ import SidebarProvider from './SidebarProvider'
 import Header from 'components/Header'
 import Sidebar from 'components/Sidebar'
 
-interface BodyLayoutProps {
-  children: React.ReactNode
-}
-
-const BodyLayout: React.FC<BodyLayoutProps> = ({ children }) => (
+const MainLayout = ({ children }: { children: React.ReactNode }) => (
   <SidebarProvider>
     <Header />
     <Sidebar />
@@ -17,4 +13,4 @@ const BodyLayout: React.FC<BodyLayoutProps> = ({ children }) => (
   </SidebarProvider>
 )
 
-export default BodyLayout
+export default MainLayout

@@ -1,0 +1,74 @@
+@import "styles/text-styles";
+
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    background: linear-gradient(rgb(0 0 0 / 30%), rgb(0 0 0 / 30%)), url("/authBg.jpg");
+    background-size: cover;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    max-width: fit-content;
+    padding: 32px;
+
+    background-color: var(--transparent-dark);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 36px;
+}
+
+.secButton {
+    background-color: var(--transparent-soft-light) !important;
+}
+
+.or {
+    @include h6;
+    color: var(--text-placeholder);
+    text-align: center;
+}
+
+.error {
+    @include h5;
+    height: 25px;
+    color: var(--system-danger);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.visibleError {
+    opacity: 1;
+}
+
+.icon {
+    font-size: 14px !important;
+    color: var(--transparent-light);
+}
+
+.visibleIcon {
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--text-light);
+    }
+}

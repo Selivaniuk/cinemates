@@ -11,6 +11,10 @@
   // Форматирование при изменении файла
   "editor.formatOnPaste": false,
 
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+
   // Использование локальных правил для StyleLint
   "stylelint.useLocal": true,
   "stylelint.autoFixOnSave": true,

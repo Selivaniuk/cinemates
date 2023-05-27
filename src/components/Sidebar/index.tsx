@@ -12,7 +12,7 @@ import styles from './Sidebar.module.scss'
 import LogoLarge from 'assets/logo/large.svg'
 import LogoSmall from 'assets/logo/small.svg'
 
-import { SidebarContext } from 'components/BodyLayout/SidebarProvider'
+import { SidebarContext } from 'components/MainLayout/SidebarProvider'
 import useTranslation from 'hooks/useTranslation'
 import Icon from 'ui/Icon'
 import Link from 'ui/Link'

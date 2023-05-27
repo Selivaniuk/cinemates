@@ -1,5 +1,6 @@
 'use client'
 
+import classNames from 'classnames'
 import { motion } from 'framer-motion'
 
 import styles from './LevelProgress.module.scss'
@@ -8,8 +9,9 @@ interface LevelProgressProps {
   progress: number
   children: React.ReactNode
   size: number
+  className?: string
 }
-const LevelProgress: React.FC<LevelProgressProps> = ({ children, progress, size }) => {
+const LevelProgress: React.FC<LevelProgressProps> = ({ children, progress, size, className }) => {
   const trackWidth = 2
 
   const center = size / 2
@@ -34,7 +36,7 @@ const LevelProgress: React.FC<LevelProgressProps> = ({ children, progress, size 
           animate={{ strokeDashoffset: dashOffset }}
         />
       </svg>
-      <div className={styles.child}>{children}</div>
+      <div className={classNames([className, styles.child])}>{children}</div>
     </div>
   )
 }
