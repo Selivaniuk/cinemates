@@ -1,7 +1,8 @@
 'use client'
 
-import { Theme } from '@prisma/client'
 import { useCookies } from 'react-cookie'
+
+import { Theme } from 'types/entities'
 
 interface ThemeSwitcherProps {
   theme: Theme
