@@ -10,5 +10,9 @@
 
     transition: background-color 0.3s linear, border-color 0.3s linear;
 
+    @media screen and (width <= 720px) {
+        width: 100% !important;
+    }
+
     // transition: border-color 0.3s linear;
 }

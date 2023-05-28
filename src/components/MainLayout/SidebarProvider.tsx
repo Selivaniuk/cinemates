@@ -1,6 +1,8 @@
 'use client'
 
-import { ReactNode, createContext, useMemo, useState } from 'react'
+import { ReactNode, createContext, useCallback, useLayoutEffect, useMemo, useState } from 'react'
+
+import useWindowSize, { MOBILE_WIDTH } from 'hooks/useWindowSize'
 
 const SIDEBAR_OPEN_WIDTH = 311
 const SIDEBAR_CLOSE_WIDTH = 73
@@ -23,7 +25,19 @@ interface SidebarProviderProps {
   children: ReactNode
 }
 const SidebarProvider: React.FC<SidebarProviderProps> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const { width } = useWindowSize()
+  const isMobile = width ? width <= MOBILE_WIDTH : false
+  const [isOpen, setIsOpen] = useState(isMobile)
+
+  useLayoutEffect(() => {
+    if (isMobile && isOpen) setIsOpen(false)
+  }, [isMobile, isOpen])
+
+  const getSidebarWidth = useCallback(() => {
+    if (isMobile) return 0
+    if (isOpen) return SIDEBAR_OPEN_WIDTH
+    return SIDEBAR_CLOSE_WIDTH
+  }, [isOpen, isMobile])
 
   const onOpen = () => setIsOpen(true)
   const onClose = () => setIsOpen(false)
@@ -31,11 +45,11 @@ const SidebarProvider: React.FC<SidebarProviderProps> = ({ children }) => {
   const contextValue: ContextValue = useMemo(
     () => ({
       isOpen,
-      sidebarWidth: isOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSE_WIDTH,
+      sidebarWidth: getSidebarWidth(),
       onClose,
       onOpen,
     }),
-    [isOpen],
+    [isOpen, getSidebarWidth],
   )
   return <SidebarContext.Provider value={contextValue}>{children}</SidebarContext.Provider>
 }

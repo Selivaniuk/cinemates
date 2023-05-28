@@ -1,8 +1,12 @@
 .collapseControl {
-    user-select: none;
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    display: none;
+
+    @media screen and (width >= 720px) {
+        user-select: none;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
 }
 
 .closeIcon,
@@ -20,5 +24,14 @@
 
     &:hover {
         color: var(--text);
+    }
+}
+
+.logo {
+    cursor: pointer;
+    min-width: fit-content;
+
+    @media screen and (width >= 720px) {
+        display: none;
     }
 }

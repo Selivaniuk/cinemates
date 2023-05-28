@@ -1,5 +1,6 @@
 import { Montserrat } from 'next/font/google'
 
+import { cookies } from 'next/headers'
 import { ReactNode } from 'react'
 
 import './globals.scss'
@@ -16,16 +17,23 @@ type LayoutProps = {
   children: ReactNode
 }
 
-const RootLayout = async ({ children }: LayoutProps) => (
-  <html data-theme='dark' lang='en'>
-    <head>
-      <link href='https://fonts.googleapis.com/css?family=Material+Icons+Outlined' rel='stylesheet' />
-    </head>
-    <body className={font.className}>
-      <div id='root'>
-        <Providers>{children}</Providers>
-      </div>
-    </body>
-  </html>
-)
+const RootLayout = async ({ children }: LayoutProps) => {
+  const nextCookies = cookies().get('theme')?.value ?? 'light'
+
+  return (
+    <html data-theme={nextCookies} lang='en'>
+      <head>
+        <link
+          href='https://fonts.googleapis.com/css?family=Material+Icons+Outlined&display=optional'
+          rel='stylesheet'
+        />
+      </head>
+      <body className={font.className}>
+        <div id='root'>
+          <Providers>{children}</Providers>
+        </div>
+      </body>
+    </html>
+  )
+}
 export default RootLayout

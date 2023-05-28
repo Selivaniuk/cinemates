@@ -2,6 +2,8 @@
 
 import classNames from 'classnames'
 
+import { AnimatePresence, motion } from 'framer-motion'
+
 import styles from './GenreFilter.module.scss'
 
 import useTranslation from 'hooks/useTranslation'
@@ -12,6 +14,21 @@ import { GenresFilterValueType } from 'types/entities'
 type FilterType = {
   label: string
   value: GenresFilterValueType
+}
+
+const variants = {
+  enter: {
+    x: '100%',
+    opacity: 0,
+  },
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: {
+    x: '-100%',
+    opacity: 0,
+  },
 }
 
 const GenreFilter = () => {
@@ -40,21 +57,49 @@ const GenreFilter = () => {
   const handleClick = (value: GenresFilterValueType) => {
     dispatch(setGenresFilter(value))
   }
+  const activeValue = FILTERS.find((f) => f.value === filterValue)
+  const currentIndex = FILTERS.findIndex((f) => f.value === filterValue)
+  const handleMobileClick = () => {
+    const newIndex = FILTERS.length > currentIndex + 1 ? currentIndex + 1 : 0
+    const newValue = FILTERS[newIndex].value
+    dispatch(setGenresFilter(newValue))
+  }
 
   return (
-    <div className={styles.filters}>
-      {FILTERS.map((filter, i) => (
-        <span
-          key={filter.value}
-          className={classNames([styles.filter, { [styles.activeFilter]: filterValue === filter.value }])}
-        >
-          <span onClick={() => handleClick(filter.value)} className={styles.label} role='button' tabIndex={0}>
-            {filter.label}
+    <>
+      <div className={styles.mobileWrapper}>
+        <AnimatePresence initial={false} custom={currentIndex} mode='popLayout'>
+          <motion.span
+            key={currentIndex}
+            custom={currentIndex}
+            variants={variants}
+            initial='enter'
+            animate='center'
+            exit='exit'
+            transition={{ type: 'spring', duration: 0.5 }}
+            onClick={handleMobileClick}
+            role='button'
+            tabIndex={0}
+            className={styles.mobileFilter}
+          >
+            <p>{activeValue?.label}</p>
+          </motion.span>
+        </AnimatePresence>
+      </div>
+      <div className={styles.filters}>
+        {FILTERS.map((filter, i) => (
+          <span
+            key={filter.value}
+            className={classNames([styles.filter, { [styles.activeFilter]: filterValue === filter.value }])}
+          >
+            <span onClick={() => handleClick(filter.value)} className={styles.label} role='button' tabIndex={0}>
+              {filter.label}
+            </span>
+            {i + 1 !== FILTERS.length && <span style={{ userSelect: 'none' }}>/</span>}
           </span>
-          {i + 1 !== FILTERS.length && <span style={{ userSelect: 'none' }}>/</span>}
-        </span>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   )
 }
 export default GenreFilter

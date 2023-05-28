@@ -159,7 +159,7 @@ const SignUp = () => {
             suffix={
               <Icon
                 className={classNames([styles.icon, styles.visibleIcon])}
-                onclick={() => {
+                onClick={() => {
                   setPasswordVisible((v) => !v)
                 }}
                 name={`visibility${passwordVisible ? '' : '_off'}`}
@@ -176,7 +176,7 @@ const SignUp = () => {
             suffix={
               <Icon
                 className={classNames([styles.icon, styles.visibleIcon])}
-                onclick={() => {
+                onClick={() => {
                   setConfirmPasswordVisible((v) => !v)
                 }}
                 name={`visibility${confirmPasswordVisible ? '' : '_off'}`}

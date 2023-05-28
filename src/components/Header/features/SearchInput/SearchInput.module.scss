@@ -1,11 +1,31 @@
 .searchInput {
-    // margin-left: 48px;
+    @media screen and (width >= 1440px) {
+        span {
+            cursor: pointer;
 
-    span {
-        cursor: pointer;
-
-        &:hover {
-            color: var(--text);
+            &:hover {
+                color: var(--text);
+            }
         }
     }
+
+    @media screen and (width <= 1440px) {
+        min-width: 24px;
+        max-width: 24px;
+        transition: min-width 0.3s, max-width 0.3s;
+    }
+}
+
+.icon {
+    cursor: pointer;
+    right: 0;
+
+    &:hover {
+        color: var(--text);
+    }
+}
+
+.isOpen {
+    min-width: 100px;
+    max-width: 300px;
 }

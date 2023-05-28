@@ -9,8 +9,11 @@ import LevelProgress from './LevelProgress'
 import styles from './UserInfo.module.scss'
 
 import useClickOutside from 'hooks/useClickOutside'
+import useLanguageSwitcher from 'hooks/useLanguageSwitcher'
+import useThemeSwitcher from 'hooks/useThemeSwitcher'
 import Icon from 'ui/Icon'
 import calculateLevelExperience from 'utils/calculateLevelExperience'
+import { capitalize } from 'utils/textUtils'
 
 interface UserInfoProps {
   name?: string
@@ -20,6 +23,12 @@ const UserInfo: React.FC<UserInfoProps> = ({ image, name }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [height, setHeight] = useState(0)
   const modalRef = useRef<HTMLDivElement>(null)
+  const ref = useClickOutside(() => setIsOpen(false))
+  const { theme, toggleTheme } = useThemeSwitcher()
+  const { language, toggleLanguage } = useLanguageSwitcher()
+  // const currentTheme = Themes[]
+  const { level, levelProgress } = calculateLevelExperience(777)
+  const avatar = image ?? '/avatar.png'
 
   useLayoutEffect(() => {
     const clientHeight = modalRef.current?.scrollHeight
@@ -29,9 +38,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ image, name }) => {
   const onSignOut = () => {
     signOut({ callbackUrl: '/signin' })
   }
-  const ref = useClickOutside(() => setIsOpen(false))
-  const avatar = image ?? '/avatar.png'
-  const { level, levelProgress } = calculateLevelExperience(777)
+
   return (
     <div ref={ref} className={styles.user}>
       <div className={styles.userAvatar} role='menuitem' tabIndex={0} onClick={() => setIsOpen((v) => !v)}>
@@ -64,6 +71,21 @@ const UserInfo: React.FC<UserInfoProps> = ({ image, name }) => {
             <div role='button' tabIndex={0} className={styles.item}>
               <Icon className={styles.icon} name='settings' />
               <p className={styles.label}>Settings</p>
+            </div>
+            <div className={styles.separator} />
+            <div role='button' tabIndex={0} className={styles.item} onClick={toggleTheme}>
+              <Icon className={styles.icon} name={`${theme}_mode`} />
+              <div className={styles.keyValue}>
+                <p className={styles.label}>Theme:</p>
+                <p className={styles.value}>{capitalize(theme)}</p>
+              </div>
+            </div>
+            <div role='button' tabIndex={0} className={styles.item} onClick={toggleLanguage}>
+              <Icon className={styles.icon} name='language' />
+              <div className={styles.keyValue}>
+                <p className={styles.label}>Language:</p>
+                <p className={styles.value}>{capitalize(language)}</p>
+              </div>
             </div>
             <div className={styles.separator} />
             <div className={styles.item} onClick={onSignOut} role='button' tabIndex={0}>

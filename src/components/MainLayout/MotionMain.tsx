@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useContext } from 'react'
 
+import styles from './MotionMain.module.scss'
 import { SidebarContext } from './SidebarProvider'
 
 const MAIN_PADDING = 24
@@ -16,7 +17,12 @@ const MotionMain: React.FC<MotionMainProps> = ({ children }) => {
   const paddingLeft = sidebarWidth + MAIN_PADDING
 
   return (
-    <motion.main style={{ paddingTop: MAIN_PADDING + 60 }} initial={{ paddingLeft }} animate={{ paddingLeft }}>
+    <motion.main
+      className={styles.main}
+      style={{ paddingTop: MAIN_PADDING + 60 }}
+      initial={{ paddingLeft }}
+      animate={{ paddingLeft }}
+    >
       {children}
     </motion.main>
   )

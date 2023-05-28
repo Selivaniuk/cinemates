@@ -2,7 +2,7 @@
 
 import classNames from 'classnames'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CSSProperties, ReactNode, useEffect, useRef, useState } from 'react'
+import { CSSProperties, ReactNode, useLayoutEffect, useRef, useState } from 'react'
 
 import styles from './Select.module.scss'
 
@@ -46,7 +46,7 @@ const Select = <T extends string | number>({
     setIsOpen(false)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpen && optionsRef.current) {
       const numOptions = options.length
       const optionHeight = 36
@@ -54,7 +54,7 @@ const Select = <T extends string | number>({
 
       optionsRef.current.style.maxHeight = maxHeight > 200 ? '200px' : `${maxHeight}px`
     }
-  }, [isOpen])
+  }, [isOpen, options.length])
 
   const selectedOption = options.find((option) => option.value === value)
 

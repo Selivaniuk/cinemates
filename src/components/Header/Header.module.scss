@@ -2,20 +2,37 @@
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 24px;
+    padding: 0 4px;
+
+    @media screen and (width >= 720px) {
+        padding: 0 24px;
+    }
 }
 
 .left {
     display: flex;
-    gap: 24px;
+    gap: 0;
+    align-items: center;
+
+    @media screen and (width >= 720px) {
+        gap: 24px;
+    }
 }
 
 .center {
     margin: 0 auto;
+    padding: 0 4px;
+
+    @media screen and (width >= 720px) {
+        padding: 0 24px;
+    }
 }
 
 .right {
     display: flex;
-    gap: 24px;
-    margin-left: auto;
+    gap: 4px;
+
+    @media screen and (width >= 720px) {
+        gap: 24px;
+    }
 }

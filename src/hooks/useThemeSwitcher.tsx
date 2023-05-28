@@ -1,51 +1,28 @@
 'use client'
 
-import { useEffect } from 'react'
-
-import { useDispatch, useSelector } from 'store'
-import { setTheme } from 'store/userSlice'
-
-import { Theme } from 'types/entities'
+import { Theme } from '@prisma/client'
+import { useCookies } from 'react-cookie'
 
 interface ThemeSwitcherProps {
-  theme?: Theme
+  theme: Theme
   toggleTheme: () => void
 }
 
 const useThemeSwitcher = (): ThemeSwitcherProps => {
-  const theme = useSelector((store) => store.user.theme)
-  const dispatch = useDispatch()
+  const [cookies, setCookie] = useCookies(['theme'])
+  const theme: Theme = cookies.theme ?? 'light'
 
   const toggleTheme = () => {
-    const newTheme: Theme = theme === 'light' ? 'dark' : 'light'
-    dispatch(setTheme(newTheme))
-  }
-  // useEffect(() => {
-  //   if (typeof window !== undefined) {
-  //     const savedTheme = localStorage.getItem('theme') as Theme
-  //     setTheme(savedTheme || 'light')
-  //   }
-  // }, [])
-  // useEffect(() => {
-  //   const root = document.documentElement
-  //   const savedTheme = localStorage.getItem('theme')
-  //   if (savedTheme) {
-  //     setTheme(savedTheme as Theme)
-  //     root.setAttribute('data-theme', savedTheme)
-  //   } else {
-  //     root.setAttribute('data-theme', theme)
-  //   }
-  // }, [])
-
-  useEffect(() => {
     const root = document.documentElement
-    if (theme) {
-      // root.setAttribute('data-theme', theme)
-      root.dataset.theme = theme
-    }
-  }, [theme])
+    const newTheme: Theme = theme === 'light' ? 'dark' : 'light'
+    root.dataset.theme = newTheme
+    setCookie('theme', newTheme)
+  }
 
-  return { theme, toggleTheme }
+  return {
+    theme,
+    toggleTheme,
+  }
 }
 
 export default useThemeSwitcher

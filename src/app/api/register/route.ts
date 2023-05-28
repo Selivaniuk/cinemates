@@ -29,7 +29,6 @@ export const POST = async (req: Request) => {
         password: hashed_password,
       },
     })
-    console.log('user', user)
 
     return NextResponse.json({
       user: {

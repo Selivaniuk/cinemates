@@ -1,16 +1,17 @@
 'use client'
 
-import { useSelector } from 'store'
+import useLanguageSwitcher from './useLanguageSwitcher'
+
 import translations from 'utils/translations'
 
 type Translations = typeof translations
 type TranslationKey = keyof Translations[keyof Translations]
 
 const useTranslation = () => {
-  const currentLanguage = useSelector((store) => store.user.language)
+  const { language } = useLanguageSwitcher()
 
   const t = (key: TranslationKey): string => {
-    const translation = translations[currentLanguage][key as keyof Translations[keyof Translations]]
+    const translation = translations[language][key as keyof Translations[keyof Translations]]
 
     if (typeof translation === 'string') {
       return translation

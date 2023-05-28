@@ -2,11 +2,9 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { useSelector as useReduxSelector, useDispatch as useReduxDispatch, TypedUseSelectorHook } from 'react-redux'
 
 import genresFilterReducer from './genresFilterSlice'
-import userReducer from './userSlice'
 
 const rootReducer = combineReducers({
   genresFilter: genresFilterReducer,
-  user: userReducer,
 })
 
 export const store = configureStore({

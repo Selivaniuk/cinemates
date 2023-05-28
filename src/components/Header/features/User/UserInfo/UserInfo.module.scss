@@ -50,11 +50,14 @@
     background-color: var(--bg);
     border-radius: 8px;
     box-shadow: var(--shadow);
+
+    transition: background-color 0.3s linear, box-shadow 0.3s linear;
 }
 
 .separator {
     margin: 8px 4px;
     border-top: 1px solid var(--separator);
+    transition: border-color 0.3s linear;
 }
 
 .items {
@@ -64,6 +67,7 @@
 
 .item {
     cursor: pointer;
+    user-select: none;
 
     display: flex;
     gap: 8px;
@@ -75,19 +79,35 @@
     background-color: transparent;
     border-radius: 8px;
 
-    &.label {
-        @include p2;
-
-        color: var(--text);
-        white-space: nowrap;
-    }
+    transition: background-color 0.3s linear;
 
     &:hover {
         background-color: var(--transparent-soft);
     }
 }
 
+.label {
+    @include p2;
+
+    color: var(--text);
+    white-space: nowrap;
+    transition: color 0.3s linear;
+}
+
+.value {
+    @include h5;
+    color: var(--text);
+    transition: color 0.3s linear;
+}
+
 .icon {
     font-size: 16px !important;
     color: var(--transparent);
+    transition: color 0.3s linear;
+}
+
+.keyValue {
+    display: flex;
+    gap: 4px;
+    align-items: center;
 }

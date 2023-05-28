@@ -11,7 +11,7 @@ const User = async () => {
   if (!session) {
     redirect('/signin')
   }
-  const userEmail = session?.user?.email ?? undefined
+  const userEmail = session.user?.email ?? undefined
   if (!userEmail) return null
   const user = await prisma.user.findUnique({
     where: { email: userEmail },

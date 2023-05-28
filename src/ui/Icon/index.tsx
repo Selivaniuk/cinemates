@@ -4,12 +4,12 @@ interface IconProps {
   name: string
   className?: string
   style?: React.CSSProperties
-  onclick?: () => void
+  onClick?: () => void
 }
-const Icon: React.FC<IconProps> = ({ name, className, style, onclick }) => (
+const Icon: React.FC<IconProps> = ({ name, className, style, onClick }) => (
   <i
-    role={onclick ? 'button' : 'img'}
-    onClick={onclick}
+    role={onClick ? 'button' : 'img'}
+    onClick={onClick}
     style={style}
     className={classNames(['material-icons-outlined', className])}
   >
