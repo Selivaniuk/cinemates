@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "MovieType" AS ENUM ('movie', 'cartoon', 'tv_series', 'animated_series', 'anime');
+
 -- CreateTable
 CREATE TABLE "Account" (
     "id" TEXT NOT NULL,
@@ -50,6 +53,54 @@ CREATE TABLE "VerificationToken" (
     CONSTRAINT "VerificationToken_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Movie" (
+    "id" INTEGER NOT NULL,
+    "type" "MovieType" NOT NULL,
+    "name" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "shortDescription" TEXT,
+    "year" INTEGER NOT NULL,
+    "rating" INTEGER NOT NULL,
+    "votes" INTEGER NOT NULL,
+    "movieLength" INTEGER,
+    "alternativeName" TEXT,
+    "genres" TEXT[],
+    "posterId" INTEGER NOT NULL,
+    "externalIdId" INTEGER NOT NULL,
+
+    CONSTRAINT "Movie_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ExternalId" (
+    "id" SERIAL NOT NULL,
+    "kpHD" TEXT,
+    "imdb" TEXT,
+    "tmdb" INTEGER,
+
+    CONSTRAINT "ExternalId_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ReleaseYear" (
+    "id" SERIAL NOT NULL,
+    "start" INTEGER NOT NULL,
+    "end" INTEGER NOT NULL,
+    "movieId" INTEGER,
+
+    CONSTRAINT "ReleaseYear_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Poster" (
+    "id" SERIAL NOT NULL,
+    "url" TEXT NOT NULL,
+    "previewUrl" TEXT NOT NULL,
+
+    CONSTRAINT "Poster_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Account_provider_provider_account_id_key" ON "Account"("provider", "provider_account_id");
 
@@ -67,3 +118,12 @@ ALTER TABLE "Account" ADD CONSTRAINT "Account_user_id_fkey" FOREIGN KEY ("user_i
 
 -- AddForeignKey
 ALTER TABLE "Session" ADD CONSTRAINT "Session_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Movie" ADD CONSTRAINT "Movie_posterId_fkey" FOREIGN KEY ("posterId") REFERENCES "Poster"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Movie" ADD CONSTRAINT "Movie_externalIdId_fkey" FOREIGN KEY ("externalIdId") REFERENCES "ExternalId"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ReleaseYear" ADD CONSTRAINT "ReleaseYear_movieId_fkey" FOREIGN KEY ("movieId") REFERENCES "Movie"("id") ON DELETE SET NULL ON UPDATE CASCADE;

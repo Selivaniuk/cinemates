@@ -2,6 +2,9 @@
   "name": "cinemates",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,7 +14,9 @@
     "db:migrate": "dotenv-flow -- npx prisma migrate dev --preview-feature",
     "db:resolve": "dotenv-flow -- npx  prisma migrate resolve --applied",
     "db:deploy": "dotenv-flow -- npx prisma migrate deploy --preview-feature",
+    "db:generate": "dotenv-flow -- npx prisma migrate deploy ",
     "db:push": "dotenv-flow -- npx prisma db push --preview-feature",
+    "db:seed": "dotenv-flow -- npx prisma db seed",
     "prisma:studio": "dotenv-flow -- npx prisma studio"
   },
   "dependencies": {
@@ -54,6 +59,7 @@
     "sass": "^1.62.1",
     "stylelint": "^15.6.2",
     "stylelint-config-clean-order": "^5.0.1",
-    "stylelint-config-standard-scss": "^9.0.0"
+    "stylelint-config-standard-scss": "^9.0.0",
+    "ts-node": "^10.9.1"
   }
 }

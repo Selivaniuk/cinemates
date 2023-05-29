@@ -57,3 +57,54 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Movie {
+    id               Int           @id
+    type             MovieType
+    name             String
+    description      String
+    shortDescription String?
+    year             Int
+    rating           Int
+    votes            Int
+    movieLength      Int?
+    alternativeName  String?
+    genres           String[]
+    poster           Poster        @relation(fields: [posterId], references: [id])
+    posterId         Int
+    releaseYears     ReleaseYear[]
+    externalId       ExternalId    @relation(fields: [externalIdId], references: [id])
+    externalIdId     Int
+}
+
+model ExternalId {
+    id    Int     @id @default(autoincrement())
+    kpHD  String?
+    imdb  String?
+    tmdb  Int?
+    Movie Movie[]
+}
+
+model ReleaseYear {
+    id      Int    @id @default(autoincrement())
+    start   Int
+    end     Int
+    Movie   Movie? @relation(fields: [movieId], references: [id])
+    movieId Int?
+}
+
+model Poster {
+    id         Int    @id @default(autoincrement())
+    url        String
+    previewUrl String
+
+    Movie Movie[]
+}
+
+enum MovieType {
+    movie
+    cartoon
+    tv_series
+    animated_series
+    anime
+}
