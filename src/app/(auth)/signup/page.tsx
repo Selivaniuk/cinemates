@@ -128,10 +128,11 @@ const SignUp = () => {
   return (
     <div>
       <div>
-        <h4>Sign up</h4>
+        <h4 className={styles.title}>Sign up</h4>
         <p className={classNames({ [styles.visibleError]: !!credentialsError }, styles.error)}>{credentialsError}</p>
         <div className={styles.form}>
           <Input
+            className={styles.input}
             type='transparent'
             label='Name'
             placeholder='Your name'
@@ -141,6 +142,7 @@ const SignUp = () => {
             suffix={<Icon className={styles.icon} name='person' />}
           />
           <Input
+            className={styles.input}
             type='transparent'
             label='E-mail'
             placeholder='example@gmail.com'
@@ -150,6 +152,7 @@ const SignUp = () => {
             suffix={<Icon className={styles.icon} name='mail' />}
           />
           <Input
+            className={styles.input}
             type='transparent'
             label='Password'
             placeholder='************'
@@ -167,6 +170,7 @@ const SignUp = () => {
             }
           />
           <Input
+            className={styles.input}
             type='transparent'
             label='Confirm password'
             placeholder='************'

@@ -100,10 +100,11 @@ const SignIn = () => {
   return (
     <div>
       <div>
-        <h4>Sign in</h4>
+        <h4 className={styles.title}>Sign in</h4>
         <p className={classNames({ [styles.visibleError]: !!credentialsError }, styles.error)}>{credentialsError}</p>
         <div className={styles.form}>
           <Input
+            className={styles.input}
             type='transparent'
             label='E-mail'
             placeholder='example@gmail.com'
@@ -113,6 +114,7 @@ const SignIn = () => {
             suffix={<Icon className={styles.icon} name='mail' />}
           />
           <Input
+            className={styles.input}
             type='transparent'
             label='Password'
             placeholder='************'

@@ -23,13 +23,30 @@
     backdrop-filter: blur(10px);
     border-radius: 10px;
 }
-
 .form {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
+.title {
+    color: var(--text-light);
+}
+.input {
+    background-color: var(--transparent-dark);
+
+    &:hover {
+        border-color: var(--transparent-light);
+    }
+
+    &:focus-within {
+        border-color: var(--transparent-light);
+        box-shadow: 0 0 2px var(--text-light);
+    }
+    > input {
+        color: var(--text-light);
+    }
+}
 .buttons {
     display: flex;
     flex-direction: column;
