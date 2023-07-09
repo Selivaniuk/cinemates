@@ -1,6 +1,8 @@
+import TopMovieSlider from 'components/TopMovieSlider'
+
 const Home = async () => (
   <div>
-    <h1>Home</h1>
+    <TopMovieSlider />
   </div>
 )
 export default Home
