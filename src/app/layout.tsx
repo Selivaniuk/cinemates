@@ -18,7 +18,7 @@ type LayoutProps = {
 }
 
 const RootLayout = async ({ children }: LayoutProps) => {
-  const nextCookies = cookies().get('theme')?.value ?? 'light'
+  const nextCookies = cookies().get('theme')?.value ?? 'dark'
 
   return (
     <html data-theme={nextCookies} lang='en'>
